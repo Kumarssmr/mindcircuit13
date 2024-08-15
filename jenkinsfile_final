@@ -41,7 +41,7 @@ pipeline {
         stage('Docker Image') {
             steps {
                 echo 'Docker Image building'
-				sh 'docker build -t lokanath11/batch16:${BUILD_NUMBER} .'
+				sh 'docker build -t dockers989/sampath33:${BUILD_NUMBER} .'
             }
         }
 		
@@ -51,10 +51,10 @@ pipeline {
 			 script {
 			withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) 
 			{
-            sh 'docker login -u lokanath11 -p ${dockerhub}'
+            sh 'docker login -u dockers989 -p ${dockerhub}'
 			
 			 }
-			   sh 'docker push lokanath11/batch16:${BUILD_NUMBER}'
+			   sh 'docker push dockers989/sampath33:${BUILD_NUMBER}'
 			   
            
 				}
@@ -67,7 +67,7 @@ pipeline {
 		
 		 environment {
             GIT_REPO_NAME = "mindcircuit13"
-            GIT_USER_NAME = "Lokanathreddy11"
+            GIT_USER_NAME = "kumarssmr"
         }
 		
             steps {
@@ -75,8 +75,8 @@ pipeline {
 				withCredentials([string(credentialsId: 'githubtoken', variable: 'githubtoken')]) 
 				{
                   sh '''
-                    git config user.email "lokanathreddylokanathreddy@gmail.com"
-                    git config user.name "lokanath"
+                    git config user.email "sampathk8680@gmail.com"
+                    git config user.name "sampath"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/tag/${BUILD_NUMBER}/g" deploymentfiles/deployment.yml
                     git add .
