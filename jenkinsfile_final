@@ -22,8 +22,8 @@ pipeline {
                 sh 'ls -ltr'
                 
                 sh ''' mvn sonar:sonar \\
-                      -Dsonar.host.url=http://13.228.73.201:9000 \\
-                      -Dsonar.login=squ_1fHWd8q9iJRaNGnqgYWL8nYEc7eeXqjfd'''
+                      -Dsonar.host.url=http://34.235.87.213:9000 \\
+                      -Dsonar.login=squ_0698270ce0e7d864e347672fd468b8c252de645b'''
             }
     	}
 		
@@ -41,7 +41,7 @@ pipeline {
         stage('Docker Image') {
             steps {
                 echo 'Docker Image building'
-				sh 'docker build -t dockers989/sampath33:${BUILD_NUMBER} .'
+				sh 'docker build -t dockers989/batch20:${BUILD_NUMBER} .'
             }
         }
 		
@@ -54,7 +54,7 @@ pipeline {
             sh 'docker login -u dockers989 -p ${dockerhub}'
 			
 			 }
-			   sh 'docker push dockers989/sampath33:${BUILD_NUMBER}'
+			   sh 'docker push dockers989/batch20:${BUILD_NUMBER}'
 			   
            
 				}
