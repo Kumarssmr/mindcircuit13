@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: mc-app
-        image: dockers989/sampath33:xyz
+        image: dockers989/batch20:xyz
         ports:
         - containerPort: 8080
 
